@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangalore House Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Bangalore House Price Prediction</h1>
+        <form action="/predict" method="POST" class="mt-4">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td><label for="location">Location</label></td>
+                        <td>
+                            <select id="location" name="location" class="form-control" required>
+                                <option value="">Select Location</option>
+                                {% for loc in locations %}
+                                    <option value="{{ loc }}">{{ loc }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="total_sqft">Total Square Feet</label></td>
+                        <td><input type="number" id="total_sqft" name="total_sqft" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="bath">Bath</label></td>
+                        <td><input type="number" id="bath" name="bath" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="bhk">BHK</label></td>
+                        <td><input type="number" id="bhk" name="bhk" class="form-control" required></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary btn-block">Predict Price</button>
+        </form>
+        {% if price %}
+        <div class="result mt-4 text-center">
+            <h2>{{ price }}</h2>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
