@@ -26,19 +26,20 @@
                     </tr>
                     <tr>
                         <td><label for="total_sqft">Total Square Feet</label></td>
-                        <td><input type="number" id="total_sqft" name="total_sqft" class="form-control" required></td>
+                        <td><input type="number" id="total_sqft" name="total_sqft" class="form-control" min="1" required></td>
                     </tr>
                     <tr>
                         <td><label for="bath">Bath</label></td>
-                        <td><input type="number" id="bath" name="bath" class="form-control" required></td>
+                        <td><input type="number" id="bath" name="bath" class="form-control" min="1" required></td>
                     </tr>
                     <tr>
                         <td><label for="bhk">BHK</label></td>
-                        <td><input type="number" id="bhk" name="bhk" class="form-control" required></td>
+                        <td><input type="number" id="bhk" name="bhk" class="form-control" min="1" required></td>
                     </tr>
                 </tbody>
             </table>
             <button type="submit" class="btn btn-primary btn-block">Predict Price</button>
+            <button type="reset" class="btn btn-secondary btn-block mt-2">Clear Form</button>
         </form>
         {% if price %}
         <div class="result mt-4 text-center">

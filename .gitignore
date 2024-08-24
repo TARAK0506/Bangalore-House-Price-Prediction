@@ -1,0 +1,10 @@
+# Python virtual environment
+venv/
+env/
+.venv/
+.env/
+# Conda environment
+.conda/
+envs/
+# Pyenv virtual environment
+.pyenv/

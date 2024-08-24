@@ -7,16 +7,17 @@ import os
 app = Flask(__name__)
 
 # Update the path to your CSV file
-data_path = os.path.join(os.path.dirname(__file__), r'C:\Users\tarak\Downloads\Data Science\Machine Learning\Regression\Linear Regression\src\Bengaluru_House_Data.csv')
-
+data_path = os.path.join(os.path.dirname(__file__), r'C:\Users\tarak\Downloads\ML Projects\Bangalore House Price Prediction\data\Bengaluru_House_Data_Cleaned.csv')
 # Load the data
 df = pd.read_csv(data_path)
 
 # Assuming you have a list of locations from the CSV
 locations = df['location'].unique().tolist()
 
+model_path = os.path.join(os.path.dirname(__file__), '..', 'banglore_home_price_prediction_model.pkl')
 
-model_path = os.path.join(os.path.dirname(__file__), 'banglore_home_price_prediction_model.pkl')
+
+
 model = pickle.load(open(model_path, 'rb'))
 
 @app.route('/')
